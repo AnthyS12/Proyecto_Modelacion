@@ -68,12 +68,12 @@ def calcularCuadradosMedios():
         lista.append(r)
         lista2.append(x)
         i=i+1  
-    df = pd.DataFrame({'X2':lista2,'Xi':lista})
-    dfrac = df["Xi"]/10**l
-    df['ri'] = dfrac
+    df = pd.DataFrame({'Valores elevados':lista2,'Valor medio':lista})
+    dfrac = df["Valor medio"]/10**l
+    df['Valor random'] = dfrac
 
     buf = io.BytesIO()
-    x1=df['ri']
+    x1=df['Valor random']
     plt.plot(x1)
     plt.title('Generador de Números Aleatorios Cuadrados Medios')
     plt.xlabel('Serie')
@@ -84,7 +84,7 @@ def calcularCuadradosMedios():
     fig.clear()
     plot_url = base64.b64encode(buf.getvalue()).decode('UTF-8')
 
-    data= df.to_html(classes="table table-dark table-striped", justify="justify-all", border=0)
+    data= df.to_html(classes="table table-light table-striped", justify="justify-all", border=0)
 
     writer = ExcelWriter("static/file/data.xlsx")
     df.to_excel(writer, index=False)
@@ -143,7 +143,7 @@ def calcularCongruencialLineal():
     fig.clear()
     plot_url = base64.b64encode(buf.getvalue()).decode('UTF-8')
 
-    data= df.to_html(classes="table table-dark table-striped", justify="justify-all", border=0)
+    data= df.to_html(classes="table table-light table-striped", justify="justify-all", border=0)
 
     writer = ExcelWriter("static/file/data.xlsx")
     df.to_excel(writer, index=False)
@@ -201,7 +201,7 @@ def calcularCongruencialMultiplicativo():
     fig.clear()
     plot_url = base64.b64encode(buf.getvalue()).decode('UTF-8')
 
-    data= df.to_html(classes="table table-dark table-striped", justify="justify-all", border=0)
+    data= df.to_html(classes="table table-light table-striped", justify="justify-all", border=0)
     
     writer = ExcelWriter("static/file/data.xlsx")
     df.to_excel(writer, index=False)
